@@ -1,0 +1,50 @@
+Source code:
+https://github.com/freqtrade/freqtrade
+
+0. Tạo evenv
+cd \path\freqtrade
+python -m venv .venv
+
+1. Kích hoạt môi trường ảo (sử dụng cmd hoặc PowerShell)
+.venv\Scripts\activate
+hoặc
+.venv\Scripts\activate.ps1
+
++ Thoát môi trường ảo
+deactivate
+
+2. Build & Run code
+# optionally install ta-lib from wheel
+# Eventually adjust the below filename to match the downloaded wheel
+pip install --find-links build_helpers\ TA-Lib -U
+pip install -r requirements.txt
+pip install -e .
+freqtrade
+
+Chú ý: pip install -e .
+Câu lệnh này sẽ tải các libs (trong setup.py hoặc pyproject.toml ) và build source
+
+3. Tạo chiến dịch
+freqtrade new-strategy --strategy MyStrategy
+
+4. Edit code trong file
+freqtrade_source\user_data\strategies\MyStrategy.py
+
+--Summary-------------------
+cd \path\freqtrade
+python -m venv .venv
+.venv\Scripts\activate.ps1
+# optionally install ta-lib from wheel
+# Eventually adjust the below filename to match the downloaded wheel
+pip install --find-links build_helpers\ TA-Lib -U
+pip install -r requirements.txt
+pip install -e .
+freqtrade
+
+---04/19/2024---
+pull code và build
+
+
+Đổi đường dẫn repository dùng để lưu code
+git remote set-url --push origin https://github.com/fotechv/freqtrade.git
+
